@@ -3,8 +3,8 @@ window.onload = () => {
   const speech = new webkitSpeechRecognition();
   speech.lang = 'ja-JP';
 
-  const btn = document.getElementById('video-button');
-  const content = document.getElementById('video-content');
+  const btn = document.getElementById('voice-button');
+  const content = document.getElementById('voice-content');
 
   btn.addEventListener('click', () => { speech.start() });
 
