@@ -4,29 +4,12 @@
   <head>
     <meta charaset="UTF-8">
     <title>ビデオ会議システム</title>
+    <script type="text/javascript" src="voice.js"></script>
   </head>
   <body>
     <h2>ビデオ会議システム</h2>
     <button id="video-button">音声認識Start</button>
     <div id="video-content"></div>
-
-    <script>
-      const speech = new webkitSpeechRecognition();
-      speech.lang = 'ja-JP';
-
-      const btn = document.getElementById('video-button');
-      const content = document.getElementById('video-content');
-
-      btn.addEventListener('click', () => {
-        speech.start();
-      });
-
-      speech.addEventListener('result', (e) => {
-        console.log(e);
-        const text = e.results[0][0].transcript;
-        content.innerText = text;
-      });
-    </script>
   </body>
 </html>
 
