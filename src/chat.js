@@ -1,7 +1,7 @@
 window.onload = () => {
   // Initialize Firebase
   const config = {
-    apiKey: "",
+    apiKey: window.__FIREBASE_APIKEY__,
     authDomain: "chatapp-62d4d.firebaseapp.com",
     databaseURL: "https://chatapp-62d4d.firebaseio.com",
     projectId: "chatapp-62d4d",
@@ -42,9 +42,15 @@ window.onload = () => {
   ref.orderBy('date').onSnapshot((querySnapshot) => {
     let outputHtml = "";
     querySnapshot.forEach((doc) => {
-      outputHtml += '<div class="chatbox">';
-      outputHtml += '<div class="name">user:' + doc.data().username + "</div>";
-      outputHtml += '<div class="text">' + doc.data().text + "<span class='date'>" + new Date(doc.data().date) + "</span></div>";
+      outputHtml += '<div class="msgbox">';
+      outputHtml += '  <div class="msg_left">';
+      outputHtml += '    <i class="fas fa-user"></i>'
+      outputHtml += '    <div class="name">' + doc.data().username + '</div>';
+      outputHtml += '  </div>';
+      outputHtml += '</div>';
+      outputHtml += '<div class="msg_right">';
+      outputHtml += '    <div class="text">' + doc.data().text + '</div>';
+      outputHtml += '  <span class="date">' + new Date(doc.data().date) + '</span>';
       outputHtml += '</div>';
     });
     output.innerHTML = outputHtml;

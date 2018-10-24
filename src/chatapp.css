@@ -1,9 +1,21 @@
-.chatbox {
-  margin: 10px;
+.msgbox {
+  display: flex;
+  padding: 10px 0 0 5px;
+}
+
+.msg_left {
+  display: flex;
+  align-itmes: center;
+}
+
+.msg_right {
+  display: flex;
+  margin: 0 15px 0 0;
 }
 
 .name {
   font-size: 10px;
+  padding-left: 10px;
 }
 
 .text {
